@@ -1,5 +1,5 @@
 import 'package:expense_tracker/model/expense.dart';
-import 'package:expense_tracker/widgets/expenses_list.dart';
+import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -30,12 +30,15 @@ class _ExpensesState extends State<Expenses> {
       category: Category.work,
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         const Text('chart'),
-        ExpensesList(expenses: _registeredExpenses),
+        Expanded(
+          child: ExpensesList(expenses: _registeredExpenses),
+        ),
       ],
     );
   }

@@ -1,4 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
+
+final formatter = DateFormat.yMd();
 
 const uuid = Uuid();
 
@@ -9,6 +13,13 @@ enum Category {
   leisure,
   food,
 }
+
+const categoryIcons = {
+  Category.work: Icons.business_center_sharp,
+  Category.food: Icons.lunch_dining_sharp,
+  Category.travel: Icons.flight_takeoff_sharp,
+  Category.leisure: Icons.movie_filter_sharp,
+};
 
 class Expense {
   Expense({
@@ -26,4 +37,8 @@ class Expense {
   final DateTime date;
   //Here is the the custom type we added by using enum keyword
   final Category category;
+
+  get formattedDate {
+    return formatter.format(date);
+  }
 }
