@@ -1,4 +1,5 @@
 import 'package:expense_tracker/model/expense.dart';
+import 'package:expense_tracker/widgets/expenses_list.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -6,22 +7,35 @@ class Expenses extends StatefulWidget {
 
   @override
   State<Expenses> createState() => _ExpensesState();
-  final List<Expense> _registeredExpenses = [
-    Expense(
-      title: 'Flutter Course',
-      amount: 20.99,
-      date: DateTime.now(),
-      category: Category.food,
-    )
-  ];
 }
 
 class _ExpensesState extends State<Expenses> {
+  final List<Expense> _registeredExpenses = [
+    Expense(
+      title: 'Smocha',
+      amount: 20.99,
+      date: DateTime.now(),
+      category: Category.food,
+    ),
+    Expense(
+      title: 'Batman',
+      amount: 10.99,
+      date: DateTime.now(),
+      category: Category.leisure,
+    ),
+    Expense(
+      title: 'Expense app',
+      amount: 20.99,
+      date: DateTime.now(),
+      category: Category.work,
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        Text('chart'),
+        const Text('chart'),
+        ExpensesList(expenses: _registeredExpenses),
       ],
     );
   }
