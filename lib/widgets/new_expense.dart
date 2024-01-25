@@ -11,8 +11,9 @@ class NewExpense extends StatefulWidget {
 class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
-
   DateTime? _selectedDate;
+  Category _selectedCategory = Category.leisure;
+
   _presentDatePicker() async {
     final now = DateTime.now();
     final firstDate = DateTime(now.year - 1, now.month, now.day);
@@ -85,24 +86,32 @@ class _NewExpenseState extends State<NewExpense> {
           ),
           //Save Expense and Cancel button
           Row(children: [
+            //Dropdown button for category selection
             DropdownButton(
+              value: _selectedCategory,
               items: Category.values
                   .map(
                     (category) => DropdownMenuItem(
-                      value: Category,
-                      child: Text(category.name.toString()),
+                      value: category,
+                      child: Text(category.name.toUpperCase()),
                     ),
                   )
                   .toList(),
-              onChanged: (value) {},
-            ),
-            ElevatedButton(
-              onPressed: () {
-                print(_titleController.text);
-                print(_amountController.text);
+              onChanged: (value) {
+                if (value == null) {
+                  return;
+                }
+                setState(() {
+                  _selectedCategory = value;
+                });
               },
+            ),
+            const SizedBox(width: 10),
+            ElevatedButton(
+              onPressed: () {},
               child: const Text('Save Expense'),
             ),
+            const SizedBox(width: 10),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
