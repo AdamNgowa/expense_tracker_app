@@ -1,5 +1,6 @@
 import 'package:expense_tracker/model/expense.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ExpenseItem extends StatelessWidget {
   const ExpenseItem({
@@ -18,12 +19,19 @@ class ExpenseItem extends StatelessWidget {
             vertical: 10,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(expense.title),
+              Text(
+                expense.title,
+                style: GoogleFonts.poppins(),
+              ),
               const SizedBox(height: 10),
               Row(
                 children: [
-                  Text('\$${expense.amount.toStringAsFixed(2)}'),
+                  Text(
+                    '\$${expense.amount.toStringAsFixed(2)}',
+                    style: GoogleFonts.poppins(),
+                  ),
                   const Spacer(),
                   Row(
                     children: [

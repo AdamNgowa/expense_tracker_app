@@ -2,6 +2,7 @@ import 'package:expense_tracker/model/expense.dart';
 import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -63,15 +64,18 @@ class _ExpensesState extends State<Expenses> {
                 _registeredExpenses.insert(expenseIndex, expense);
               });
             }),
-        content: const Text('Expense Deletes'),
+        content: Text('Expense Deleted', style: GoogleFonts.poppins()),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget mainContent = const Center(
-      child: Text('No expenses found ,try adding some'),
+    Widget mainContent = Center(
+      child: Text(
+        'No expenses found ,try adding some',
+        style: GoogleFonts.poppins(),
+      ),
     );
     if (_registeredExpenses.isNotEmpty) {
       mainContent = ExpensesList(
@@ -81,7 +85,7 @@ class _ExpensesState extends State<Expenses> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Expense tracker'),
+        title: Text('Expense tracker', style: GoogleFonts.poppins()),
         actions: [
           IconButton(
             onPressed: _openAddExpenseOverlay,

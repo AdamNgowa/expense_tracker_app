@@ -1,5 +1,6 @@
 import 'package:expense_tracker/model/expense.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewExpense extends StatefulWidget {
   const NewExpense({super.key, required this.onAddExpense});
@@ -87,8 +88,11 @@ class _NewExpenseState extends State<NewExpense> {
             TextField(
               controller: _titleController,
               maxLength: 50,
-              decoration: const InputDecoration(
-                label: Text('Enter the expense title'),
+              decoration: InputDecoration(
+                label: Text(
+                  'Enter the expense title',
+                  style: GoogleFonts.poppins(),
+                ),
               ),
             ),
             Row(
@@ -96,8 +100,11 @@ class _NewExpenseState extends State<NewExpense> {
                 Expanded(
                   child: TextField(
                     controller: _amountController,
-                    decoration: const InputDecoration(
-                      label: Text('Enter the amount'),
+                    decoration: InputDecoration(
+                      label: Text(
+                        'Enter the amount',
+                        style: GoogleFonts.poppins(),
+                      ),
                       prefixText: '\$',
                     ),
                     keyboardType: TextInputType.number,
@@ -150,14 +157,14 @@ class _NewExpenseState extends State<NewExpense> {
               const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: _submitExpenseData,
-                child: const Text('Save Expense'),
+                child: Text('Save Expense', style: GoogleFonts.poppins()),
               ),
               const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: const Text('Cancel'),
+                child: Text('Cancel', style: GoogleFonts.poppins()),
               )
             ]),
           ],
