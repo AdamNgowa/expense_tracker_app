@@ -42,3 +42,30 @@ class Expense {
     return formatter.format(date);
   }
 }
+
+//This code here uses a for loop to create a chart
+//it first creates a final variable called expense which is derived from expenses
+class ExpenseBucket {
+  const ExpenseBucket({
+    required this.category,
+    required this.expenses,
+  });
+
+//This adds an alternative constructor function
+//This code filters the list allowing only fo the appropriate category to be selected.
+  ExpenseBucket.forCategory(List<Expense> allExpenses, this.category)
+      : expenses = allExpenses
+            .where((expense) => expense.category == category)
+            .toList();
+//Where is used to filter lists
+  final Category category;
+  final List<Expense> expenses;
+
+  double get totalExpenses {
+    double sum = 0;
+    for (final expense in expenses) {
+      sum += expense.amount;
+    }
+    return sum;
+  }
+}
