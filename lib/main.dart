@@ -1,4 +1,8 @@
 import 'package:expense_tracker/widgets/expenses.dart';
+//Prevent app from being in landscape mode-->basically lock the screen to a desired orientation.
+//Starts here
+// import 'package:flutter/services.dart';
+//Ends here
 import 'package:flutter/material.dart';
 
 var kColorScheme = ColorScheme.fromSeed(seedColor: Colors.purple.shade700);
@@ -7,7 +11,13 @@ var kColorScheme = ColorScheme.fromSeed(seedColor: Colors.purple.shade700);
 //   brightness: Brightness.dark,
 // );
 
-void main() => runApp(const MyApp());
+void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]).then((fn) => runApp(const MyApp()));
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

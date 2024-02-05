@@ -28,7 +28,7 @@ class Expense {
     required this.date,
     required this.category,
   }) : id = uuid.v4();
-  //uuid.v4() is uesed to generate a unique string id
+  //uuid.v4() is used to generate a unique string id
   //In dart initializer lists can be used to initialize class properties with values that  are not received as  constructor function arguments
 
   final String title;
